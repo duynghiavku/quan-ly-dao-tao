@@ -53,3 +53,9 @@ Route::get('/',[HomeController::class,'index'])->name('index');
 Route::prefix('sv')->middleware(['student'])->group(function(){
     Route::get('lich-hoc',[ScheduleController::class,'showSchedule']);
 });
+Route::prefix('gv')->group(function(){
+  Route::get('quan-ly-diem',[ScoreController::class,'showListScore']);
+  Route::get('quan-ly-diem/{id}',[ScoreController::class,'manageScore']);
+  Route::post('quan-ly-diem/nhap-diem',[ScoreController::class,'importScore']); //Ajax
+  Route::post('quan-ly-diem/xac-nhan',[ScoreController::class,'postScore']);
+});

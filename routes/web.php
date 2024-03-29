@@ -52,6 +52,8 @@ Route::get('/',[HomeController::class,'index'])->name('index');
 
 Route::prefix('sv')->middleware(['student'])->group(function(){
     Route::get('lich-hoc',[ScheduleController::class,'showSchedule']);
+    Route::get('hoc-phi-da-nop',[UserController::class,'historyTution']);
+    Route::get('hoc-phi-sap-nop',[UserController::class,'showTuition']);
 });
 Route::prefix('gv')->group(function(){
   Route::get('quan-ly-diem',[ScoreController::class,'showListScore']);

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <!--  13:28  -->
 <head>
     <meta charset="UTF-8">
@@ -42,10 +42,10 @@
     <![endif]-->
   </head>
   <body style="background-color: #F5FBFD">
-	
+
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
-        
+
         <!--// Header \\-->
 		<header id="wm-header" class="wm-header-one">
 
@@ -188,7 +188,7 @@
 
 		<!--// Footer \\-->
 		<footer id="wm-footer" class="wm-footer-one">
-			
+
             <!--// FooterNewsLatter \\-->
             <div class="wm-footer-newslatter">
                 <div class="container">
@@ -282,7 +282,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
-            
+
             <div class="wm-modallogin-form wm-login-popup">
                 <span class="wm-color">Đăng nhập sinh viên</span>
                 <form action="{{route('loginStudent')}}" method="POST">
@@ -339,7 +339,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
-            
+
             <div class="wm-modallogin-form">
                 <span class="wm-color">Search Your KeyWord</span>
                 <form>
@@ -422,7 +422,7 @@
     .center li{
         display: flex;
         justify-content: center;
-        align-items: center;  
+        align-items: center;
     }
     .wm-forgot-btn{
         color: #7F7F7F;
@@ -445,10 +445,10 @@
   </style>
   <script>
         $(document).ready(function(){
-            $.ajaxSetup({ 
-                headers: { 
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') 
-                } 
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
             });
 
             var semester_id = $("#semester li:first").text();

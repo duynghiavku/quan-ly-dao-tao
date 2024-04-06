@@ -7,6 +7,24 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function login(Request $request)
+    {
+        $email = $request->email;
+        $password = $request->password;
+
+        $student = Student::where('email',$email)->first();
+
+        if($student && Hash::check($password,$student->password)){
+            if(session('teacher_id')){
+                session()->forget('teacher_id');
+            }
+            $request->session()->put('student_id',$student->id);
+            return redirect()->back();
+        }else{
+            return redirect()->back();
+        }
+    }
+
     public function historyTution()
     {
         $student_id = session('student_id');

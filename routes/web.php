@@ -49,11 +49,25 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/',[HomeController::class,'index'])->name('index');
+Route::post('/login',[UserController::class,'login'])->name('loginStudent');
+Route::get('/logout',[UserController::class,'logout'])->name('logout');
+Route::get('quen-mat-khau/{type}',[HomeController::class,'forgotPassword']);
+Route::post('xac-minh-email',[HomeController::class,'confirmEmail']);  //ajax
+Route::post('kiem-tra-otp',[HomeController::class,'checkOtp']);        //ajax
+Route::get('mat-khau-moi',[HomeController::class,'newPassword']);
+Route::post('mat-khau-moi',[HomeController::class,'postNewPassword']);
 
 Route::prefix('sv')->middleware(['student'])->group(function(){
     Route::get('lich-hoc',[ScheduleController::class,'showSchedule']);
     Route::get('hoc-phi-da-nop',[UserController::class,'historyTution']);
     Route::get('hoc-phi-sap-nop',[UserController::class,'showTuition']);
+    Route::get('dang-ki-tin-chi',[StudentSectionController::class,'showRegistration']);
+    Route::post('dang-ki-tin-chi/mon-hoc',[StudentSectionController::class,'getSection']);    //Ajax
+    Route::post('dang-ki-tin-chi',[StudentSectionController::class,'postRegistration']);
+    Route::get('dang-ki-tin-chi/mon/{id}',[StudentSectionController::class,'registerCredits']);
+    Route::get('dang-ki-tin-chi/huy/mon/{id}',[StudentSectionController::class,'destroyCredits']);
+    Route::get('dang-ki-tin-chi/mon/do-an/{id}',[StudentSectionController::class,'creditProject']);
+    Route::get('dang-ki-tin-chi/huy/mon/do-an/{id}',[StudentSectionController::class,'destroyCreditProject']);
 });
 Route::prefix('gv')->group(function(){
   Route::get('quan-ly-diem',[ScoreController::class,'showListScore']);

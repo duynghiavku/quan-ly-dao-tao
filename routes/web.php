@@ -74,4 +74,17 @@ Route::prefix('gv')->group(function(){
   Route::get('quan-ly-diem/{id}',[ScoreController::class,'manageScore']);
   Route::post('quan-ly-diem/nhap-diem',[ScoreController::class,'importScore']); //Ajax
   Route::post('quan-ly-diem/xac-nhan',[ScoreController::class,'postScore']);
+  Route::post('diem-danh',[FrontendTeacherController::class,'postAttendance']); //Ajax
+  Route::post('diem-danh/{id}',[FrontendTeacherController::class,'postAllAttendance']);
+  Route::get('diem-danh/noi-dung/{id}',[FrontendTeacherController::class,'getContent']); //Ajax
+  Route::get('danh-sach-hoc-phan',[FrontendTeacherController::class,'showListSection']);
+});
+
+Route::prefix('admin')->group(function(){
+  //Giảng viên
+  Route::get('teacher/add',[TeacherController::class,'create']);
+  Route::get('teacher',[TeacherController::class,'index']);
+  //Sinh viên
+  Route::get('student/add',[StudentController::class,'create']);
+  Route::get('student',[StudentController::class,'index']);
 });

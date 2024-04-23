@@ -87,4 +87,14 @@ Route::prefix('admin')->group(function(){
   //Sinh viên
   Route::get('student/add',[StudentController::class,'create']);
   Route::get('student',[StudentController::class,'index']);
+
+  //Khoa
+  Route::get('faculty/add',[FacultyController::class,'create']);
+  Route::get('faculty',[FacultyController::class,'index']);
+
+  //Môn học
+  Route::get('subject/add',[SubjectController::class,'create']);
+  //Lớp học phần
+  Route::get('section/add',[SectionController::class,'create']);
+  Route::get('subject/section/{id}',[SectionController::class,'index']);
 });

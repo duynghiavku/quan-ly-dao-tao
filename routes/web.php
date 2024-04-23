@@ -79,3 +79,12 @@ Route::prefix('gv')->group(function(){
   Route::get('diem-danh/noi-dung/{id}',[FrontendTeacherController::class,'getContent']); //Ajax
   Route::get('danh-sach-hoc-phan',[FrontendTeacherController::class,'showListSection']);
 });
+
+Route::prefix('admin')->group(function(){
+  //Giảng viên
+  Route::get('teacher/add',[TeacherController::class,'create']);
+  Route::get('teacher',[TeacherController::class,'index']);
+  //Sinh viên
+  Route::get('student/add',[StudentController::class,'create']);
+  Route::get('student',[StudentController::class,'index']);
+});

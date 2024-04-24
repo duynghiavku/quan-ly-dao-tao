@@ -87,4 +87,11 @@ Route::prefix('admin')->group(function(){
   //Sinh viên
   Route::get('student/add',[StudentController::class,'create']);
   Route::get('student',[StudentController::class,'index']);
+
+  //Năm học
+  Route::get('year-study/add',[YearStudyController::class,'create']);
+  Route::get('year-study',[YearStudyController::class,'index']);
+  //Học kỳ
+  Route::get('semester/add',[SemesterController::class,'create']);
+  Route::get('semester',[SemesterController::class,'index']);
 });

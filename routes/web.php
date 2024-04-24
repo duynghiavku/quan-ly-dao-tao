@@ -97,4 +97,14 @@ Route::prefix('admin')->group(function(){
   //Lớp học phần
   Route::get('section/add',[SectionController::class,'create']);
   Route::get('subject/section/{id}',[SectionController::class,'index']);
+
+  //Ngành đào tạo
+  Route::get('branch/add',[BranchController::class,'create']);
+  Route::get('branch/class/{id}',[ClassController::class,'index']);
+
+  //Niên khóa đào tạo
+  Route::get('year-train/add',[YearTrainController::class,'create']);
+
+  //Lớp sinh hoạt
+  Route::get('class/add',[ClassController::class,'create']);
 });

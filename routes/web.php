@@ -94,4 +94,9 @@ Route::prefix('admin')->group(function(){
   //Học kỳ
   Route::get('semester/add',[SemesterController::class,'create']);
   Route::get('semester',[SemesterController::class,'index']);
+
+  //Học phí
+  Route::get('tution',[TutionController::class,'index']);
+  Route::get('tution/add',[TutionController::class,'create']);
+  Route::get('tution/not/submit',[TutionController::class,'notSubmit']);
 });

@@ -114,4 +114,28 @@ Route::prefix('admin')->group(function(){
   //Học kỳ
   Route::get('semester/add',[SemesterController::class,'create']);
   Route::get('semester',[SemesterController::class,'index']);
+
+  //Nhóm học phần
+    Route::get('group/faculty',[GroupController::class,'getFaculty']);
+    Route::get('group/faculty/year/{id}',[GroupController::class,'getYearTrain']);
+    Route::get('group/branch/{id}',[GroupController::class,'getBranch']);
+    Route::get('group/branch/{id}/year',[GroupController::class,'getYearStudy']);
+    Route::get('group/branch/{id}/year/{year}',[GroupController::class,'getSemester']);
+    Route::get('group/branch/{id}/year/{year}/semester/{semester}/add',[GroupController::class,'create']);
+    Route::post('group/branch/{id}/year/{year}/semester/{semester}/add',[GroupController::class,'store']);
+    Route::get('group/branch/{id}/year/{year}/semester/{semester}',[GroupController::class,'index']);
+    Route::get('group/subject/{id}',[GroupController::class,'getSubject']);
+    Route::get('group/subject/score/{id}',[GroupController::class,'manageScore']);
+    Route::post('group/subject/score/{id}',[GroupController::class,'confirmScore']);
+    Route::get('group/subject/score/cancel/{id}',[GroupController::class,'cancelConfirm']);
+    Route::get('type/branch/{id}/semester/{semester}/project',[TypeProjectController::class,'index']);
+    Route::get('type/branch/{id}/semester/{semester}/project/add',[TypeProjectController::class,'create']);
+    Route::post('type/branch/{id}/semester/{semester}/project/add',[TypeProjectController::class,'store']);
+    Route::get('group/project/{id}',[GroupProjectController::class,'index']);
+    Route::get('group/project/{id}/add',[GroupProjectController::class,'create']);
+    Route::post('group/project/{id}/add',[GroupProjectController::class,'store']);
+    Route::get('group/project/delete/{id}',[GroupProjectController::class,'destroy']);
+    Route::get('project/list/student/{id}',[ReportController::class,'index']);
+    Route::get('project/list/student/{id}/add',[ReportController::class,'create']);
+    Route::post('project/list/student/{id}/add',[ReportController::class,'store']);
 });

@@ -2,17 +2,17 @@
 @section('content')
             <div class="page-breadcrumb">
                 <div class="row">
-                    <div class="col-6 align-self-center">
-                        <h4 class="page-title">Niên khóa đào tạo: {{$faculty->name}}</h4>
+                    <div class="col-5 align-self-center">
+                        <h4 class="page-title">Danh sách môn học</h4>
                     </div>
-                    <div class="col-6 align-self-center">
+                    <div class="col-7 align-self-center">
                         <div class="d-flex align-items-center justify-content-end">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
                                         <a href="#">Trang chủ</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Niên khóa đào tạo</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Môn học</li>
                                 </ol>
                             </nav>
                         </div>
@@ -35,30 +35,31 @@
                                     <thead class="thead-light">
                                         <tr>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Khóa đào tạo</th>
-                                            <th scope="col">Năm đào tạo</th>
-                                            <th scope="col">Danh sách ngành đào tạo</th>
+                                            <th scope="col">Mã môn học</th>
+                                            <th scope="col">Tên môn học</th>
+                                            <th scope="col">Khóa học</th>
+                                            <th scope="col">Lớp học phần</th>
                                             <th scope="col">Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @php $i = 0; @endphp
-                                        @foreach($yeartrains as $yeartrain)
+                                        @foreach($subjects as $subject)
                                         @php $i++; @endphp
                                         <tr>
                                             <th scope="row">{{$i}}</th>
-                                            <td>{{$yeartrain->name}}</td>
-                                            <td>{{$yeartrain->year}}</td>
+                                            <td>{{$subject->code}}</td>
+                                            <td>{{$subject->name}}</td>
+                                            <td>{{$subject->yeartrain->name}}</td>
                                             <td>
-                                                <a href="{{ URL('admin/year-train/branch/'.$yeartrain->id.'') }}">Xem danh sách</a>
+                                                <a href="{{ URL('admin/subject/section/'.$subject->id.'') }}">Xem danh sách</a>
                                             </td>
                                             <td>
-                                                <a href="#">
+                                                <a href="{{ URL('admin/subject/edit/'.$subject->id.'') }}">
                                                     <i class="fa-solid fa-pen-to-square"></i> Sửa
-                                                </a>       
-                                                </a>
+                                                </a>                                              
                                                 |
-                                                <a href="#">
+                                                <a href="{{ URL('admin/subject/delete/'.$subject->id.'') }}">
                                                     <i class="fa-solid fa-trash"></i> Xóa
                                                 </a>
                                             </td>
@@ -70,7 +71,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <a href="{{ URL('admin/year-train/add') }}" class="btn btn-success" id="btn">Thêm niên khóa đào tạo</a>
+                        <a href="{{ URL('admin/subject/add') }}" class="btn btn-success" id="btn">Thêm môn học</a>
                     </div>
                 </div>
             </div>
@@ -78,9 +79,13 @@
                 All Rights Reserved by Nice admin. Designed and Developed by
                 <a href="https://wrappixel.com">WrapPixel</a>.
             </footer>
-    <style>
-        #btn {
-            color: white;
-        }
-    </style>
+            <style>
+                #btn {
+                    color: white;
+                }
+                .avatar {
+                    width: 50px;
+                    border-radius: 50%;
+                }
+            </style>
 @endsection

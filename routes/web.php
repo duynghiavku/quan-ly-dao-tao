@@ -88,6 +88,26 @@ Route::prefix('admin')->group(function(){
   Route::get('student/add',[StudentController::class,'create']);
   Route::get('student',[StudentController::class,'index']);
 
+  //Khoa
+  Route::get('faculty/add',[FacultyController::class,'create']);
+  Route::get('faculty',[FacultyController::class,'index']);
+
+  //Môn học
+  Route::get('subject/add',[SubjectController::class,'create']);
+  //Lớp học phần
+  Route::get('section/add',[SectionController::class,'create']);
+  Route::get('subject/section/{id}',[SectionController::class,'index']);
+
+  //Ngành đào tạo
+  Route::get('branch/add',[BranchController::class,'create']);
+  Route::get('branch/class/{id}',[ClassController::class,'index']);
+
+  //Niên khóa đào tạo
+  Route::get('year-train/add',[YearTrainController::class,'create']);
+
+  //Lớp sinh hoạt
+  Route::get('class/add',[ClassController::class,'create']);
+
   //Năm học
   Route::get('year-study/add',[YearStudyController::class,'create']);
   Route::get('year-study',[YearStudyController::class,'index']);
@@ -99,4 +119,28 @@ Route::prefix('admin')->group(function(){
   Route::get('tution',[TutionController::class,'index']);
   Route::get('tution/add',[TutionController::class,'create']);
   Route::get('tution/not/submit',[TutionController::class,'notSubmit']);
+
+  //Nhóm học phần
+    Route::get('group/faculty',[GroupController::class,'getFaculty']);
+    Route::get('group/faculty/year/{id}',[GroupController::class,'getYearTrain']);
+    Route::get('group/branch/{id}',[GroupController::class,'getBranch']);
+    Route::get('group/branch/{id}/year',[GroupController::class,'getYearStudy']);
+    Route::get('group/branch/{id}/year/{year}',[GroupController::class,'getSemester']);
+    Route::get('group/branch/{id}/year/{year}/semester/{semester}/add',[GroupController::class,'create']);
+    Route::post('group/branch/{id}/year/{year}/semester/{semester}/add',[GroupController::class,'store']);
+    Route::get('group/branch/{id}/year/{year}/semester/{semester}',[GroupController::class,'index']);
+    Route::get('group/subject/{id}',[GroupController::class,'getSubject']);
+    Route::get('group/subject/score/{id}',[GroupController::class,'manageScore']);
+    Route::post('group/subject/score/{id}',[GroupController::class,'confirmScore']);
+    Route::get('group/subject/score/cancel/{id}',[GroupController::class,'cancelConfirm']);
+    Route::get('type/branch/{id}/semester/{semester}/project',[TypeProjectController::class,'index']);
+    Route::get('type/branch/{id}/semester/{semester}/project/add',[TypeProjectController::class,'create']);
+    Route::post('type/branch/{id}/semester/{semester}/project/add',[TypeProjectController::class,'store']);
+    Route::get('group/project/{id}',[GroupProjectController::class,'index']);
+    Route::get('group/project/{id}/add',[GroupProjectController::class,'create']);
+    Route::post('group/project/{id}/add',[GroupProjectController::class,'store']);
+    Route::get('group/project/delete/{id}',[GroupProjectController::class,'destroy']);
+    Route::get('project/list/student/{id}',[ReportController::class,'index']);
+    Route::get('project/list/student/{id}/add',[ReportController::class,'create']);
+    Route::post('project/list/student/{id}/add',[ReportController::class,'store']);
 });

@@ -38,7 +38,6 @@
                                             <th scope="col">Khóa đào tạo</th>
                                             <th scope="col">Năm đào tạo</th>
                                             <th scope="col">Danh sách ngành đào tạo</th>
-                                            <th scope="col">Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -50,17 +49,7 @@
                                             <td>{{$yeartrain->name}}</td>
                                             <td>{{$yeartrain->year}}</td>
                                             <td>
-                                                <a href="{{ URL('admin/year-train/branch/'.$yeartrain->id.'') }}">Xem danh sách</a>
-                                            </td>
-                                            <td>
-                                                <a href="#">
-                                                    <i class="fa-solid fa-pen-to-square"></i> Sửa
-                                                </a>       
-                                                </a>
-                                                |
-                                                <a href="#">
-                                                    <i class="fa-solid fa-trash"></i> Xóa
-                                                </a>
+                                                <a href="{{ URL('admin/group/branch/'.$yeartrain->id.'') }}">Xem danh sách</a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -68,9 +57,6 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <a href="{{ URL('admin/year-train/add') }}" class="btn btn-success" id="btn">Thêm niên khóa đào tạo</a>
                     </div>
                 </div>
             </div>

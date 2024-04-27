@@ -115,6 +115,11 @@ Route::prefix('admin')->group(function(){
   Route::get('semester/add',[SemesterController::class,'create']);
   Route::get('semester',[SemesterController::class,'index']);
 
+  //Học phí
+  Route::get('tution',[TutionController::class,'index']);
+  Route::get('tution/add',[TutionController::class,'create']);
+  Route::get('tution/not/submit',[TutionController::class,'notSubmit']);
+
   //Nhóm học phần
     Route::get('group/faculty',[GroupController::class,'getFaculty']);
     Route::get('group/faculty/year/{id}',[GroupController::class,'getYearTrain']);
